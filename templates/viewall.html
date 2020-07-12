@@ -1,0 +1,38 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% include 'adminmenu.html' %}
+    {% load static %}
+    <table  border="2" align="center">
+    <tr align="center"><th colspan="8" style="color: gold">viewing all schedules</th></tr>
+    <tr><th> Name</th>
+    <th>Faculty</th>
+    <th>Date</th>
+        <th>Time</th>
+        <th>Fee</th>
+       <th>Duration</th>
+        <th>Update</th>
+    <th>Delete</th></tr>
+    {% for x in data %}
+        <tr><th>{{ x.name }}</th>
+        <th>{{ x.faculty }}</th>
+        <th>{{ x.date }}</th>
+        <th>{{ x.time }}</th>
+            <th>{{ x.fee }}</th>
+        <th>{{ x.duration }}</th>
+        <th>
+            <a href={% url 'update' %}?no={{ x.id }} ><img src="{% static 'images/update.png' %}" width="30px" height="20px">
+            </a></th>
+        <th>
+            <a href="{% url 'delete' %}?del={{ x.id }}">
+            <img src='{% static 'images/delete.png' %}' width="30px" height="20px"></a>
+        </th>
+        </tr>
+
+    {% endfor %}
+    {% for x in messages %}
+            <tr align="centet">
+            <th >{{ x }}</th>
+            </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

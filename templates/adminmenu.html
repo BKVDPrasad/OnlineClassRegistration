@@ -1,0 +1,36 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% load static %}
+    <table align="center" width="600px">
+    <tr><th>
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <a class="navbar-brand" href="{% url 'some' %}">Admin Panel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'newclass' %}">Schedule New Class <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'viewall' %}">View All Scheduled Classes</a>
+      </li>
+    </ul>
+  </div>
+    </nav>
+    </th></tr>
+        <tr>
+            <th>
+                <h3 style="text-align: center"> Admin Login Successful</h3>
+            </th>
+        </tr>
+    <tr align="center">
+        <th >
+            <img src="{% static 'images/admin.png' %}">
+        </th>
+    </tr>
+
+    </table>
+{% endblock %}

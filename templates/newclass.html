@@ -1,0 +1,24 @@
+{% extends 'common.html' %}
+{% block common %}
+    {% include 'adminmenu.html' %}
+   <h5 style="text-align: center;color: chartreuse"> Schedule A New Class</h5>
+<form action="{% url 'savedb' %}" method="post">
+{% csrf_token %}
+    <table align="center">
+    <tr>
+        <th><input type="text" name="t1" placeholder="Name" required></th>
+    </tr>
+    <tr>
+        <th><input type="text" name="t2"placeholder="Faculty" required></th>
+    </tr>
+    <tr><th><input type="date" name="t3"placeholder="Date" required></th></tr>
+    <tr><th><input type="time" name="t4" placeholder="Time"required></th></tr>
+    <tr><th><input type="number" name="t5"placeholder="Fee" required> </th></tr>
+    <tr><th><input type="number" name="t6" placeholder="Duration" required></th></tr>
+    <tr align="center"><th><button type="submit">save</button></th></tr>
+        {% if msg %}
+            <tr><th>{{ msg }}</th></tr>
+        {% endif %}
+    </table>
+</form>
+{% endblock %}

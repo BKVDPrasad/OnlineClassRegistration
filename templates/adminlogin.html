@@ -1,0 +1,25 @@
+{% extends 'common.html' %}
+
+{% block common %}
+<br><br><br><br>
+    <h1 style="text-align: center;color: blue"> Admin Login</h1>
+    <form action="{% url 'adminlog' %}" method="post">
+    {% csrf_token %}
+    <table align="center" style="background-color: gold;color: black; ">
+    <tr>
+        <th><input type="text" name="t1" required placeholder="username"></th>
+    </tr>
+    <tr>
+        <th><input type="password" name="t2" required placeholder="password"></th>
+    </tr>
+    <tr>
+        <th style="text-align: center"><button type="submit">SUMBIT</button></th>
+    </tr>
+        {% if error %}
+            <tr>
+            <th>{{ error }}</th>
+            </tr>
+        {% endif %}
+    </table>
+    </form>
+{% endblock %}
