@@ -1,0 +1,18 @@
+{% extends 'common.html' %}
+{% block common %}
+{% include 'studentmenu.html' %}
+    <h4 style="text-align: center;color: cyan"> Student Registration</h4>
+    <form action="{% url 'savestu' %}" method="post">
+    {% csrf_token %}
+    <table align="center">
+    <tr><th><input type="text" name="t1" required placeholder="Name"></th></tr>
+    <tr><th><input type="number" name="t2" required placeholder="ContactNo"></th></tr>
+    <tr><th><input type="email" name="t3" required placeholder="Email"></th></tr>
+    <tr><th><input type="password" name="t4" required placeholder="Password"></th></tr>
+    <tr align="center"><th><button type="submit">save</button></th></tr>
+        {% for x in messages %}
+            <tr><th>{{ x }}</th></tr>
+        {% endfor %}
+    </table>
+    </form>
+{% endblock %}

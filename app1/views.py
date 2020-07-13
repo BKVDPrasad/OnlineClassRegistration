@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from app1.models import NesclassModel
+from app1.models import NesclassModel,StudentMOdel
 from django.contrib import messages
 # Create your views here.
 def adminLoginl(request):
@@ -79,3 +79,38 @@ def delete(request):
 
 def some(request):
     return render(request,'menu.html')
+
+
+def student(request):
+    return render(request,'student.html')
+
+
+def stureg(request):
+    return render(request,'stureg.html')
+
+
+def savestu(request):
+    n=request.POST.get('t1')
+    c=request.POST.get('t2')
+    e=request.POST.get('t3')
+    p=request.POST.get('t4')
+    print(n,c,e,p)
+    StudentMOdel(name=n,contactno=c,email=e,password=p).save()
+    messages.success(request,'registration successful')
+    return render(request,'stureg.html')
+
+
+def stulogin(request):
+    return render(request,'stulogin.html')
+
+
+def logvalidte(request):
+    ph=request.POST.get('t1')
+    pa=request.POST.get('t2')
+    try:
+        sa=StudentMOdel.objects.get(contactno=ph,password=pa)
+
+        return render(request,'loginstu.html',{'data':sa})
+    except StudentMOdel.DoesNotExist:
+
+        return render(request, "stulogin.html", {"msg": "login faill"})

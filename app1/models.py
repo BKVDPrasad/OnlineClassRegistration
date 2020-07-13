@@ -7,3 +7,9 @@ class NesclassModel(models.Model):
     time =models.TimeField()
     fee = models.IntegerField()
     duration= models.IntegerField()
+
+class StudentMOdel(models.Model):
+    name=models.CharField(max_length=38)
+    contactno=models.IntegerField()
+    email=models.EmailField()
+    password=models.CharField(max_length=45)

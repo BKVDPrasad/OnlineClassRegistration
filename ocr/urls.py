@@ -28,5 +28,11 @@ urlpatterns = [
     path('update/',views.update,name='update'),
     path('updatedata/',views.updatedata,name='updatedata'),
     path('delete/',views.delete,name='delete'),
-    path('some',views.some,name='some')
+    path('some',views.some,name='some'),
+
+    path('student/',views.student,name='student'),
+    path('stureg/',views.stureg,name='stureg'),
+    path('savestu/',views.savestu,name='savestu'),
+    path('stulogin',views.stulogin,name='stulogin'),
+    path('logvalidte/',views.logvalidte,name='logvalidte')
 ]

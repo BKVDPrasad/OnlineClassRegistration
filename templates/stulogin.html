@@ -1,0 +1,18 @@
+{% extends 'common.html' %}
+{% block common %}
+    <h2 style="text-align: center;color: red"> Student login Here</h2>
+    {% include 'studentmenu.html' %}
+    <br>
+    <form action="{% url 'logvalidte' %}" method="post">
+    {% csrf_token %}
+    <table align="center">
+    <tr><th><input type="number" name="t1" placeholder="Phone number" required></th></tr>
+    <tr><th><input type="password" name="t2" placeholder="Password" required></th></tr>
+    <tr align="center"><th><button type="submit">LogIn</button></th></tr>
+        {% if msg %}
+            <tr><th>{{ msg }}</th></tr>
+        {% endif %}
+    </table>
+    </form>
+
+{% endblock %}
