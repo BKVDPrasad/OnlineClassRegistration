@@ -3,5 +3,35 @@
 
     <h4 style="text-align: center;color: cyan">Your name :{{ data.name }}</h4>
 {% include 'stulogmenu.html' %}
+<form action="{% url 'save' %}?sid={{ data.id }}" method="post">
+{% csrf_token %}
+    <table align="center">
+
+    <tr>
+        <th>course : </th>
+
+        <th>
+
+            <select name="t1">
+                {% for x in res %}
+                <option value="{{ x.cid }}" >{{ x.name }}</option>
+                {% endfor %}
+            </select>
+
+        </th>
+    </tr>
+    <tr ><th style="text-align: center"><button type="submit">Add</button></th></tr>
+    {% for x in messages %}
+        <tr>
+            <th>
+                {{ x }}
+            </th>
+        </tr>
+    {% endfor %}
+    </table>
+
+</form>
+
+
 
 {% endblock %}

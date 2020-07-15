@@ -34,5 +34,6 @@ urlpatterns = [
     path('stureg/',views.stureg,name='stureg'),
     path('savestu/',views.savestu,name='savestu'),
     path('stulogin',views.stulogin,name='stulogin'),
-    path('logvalidte/',views.logvalidte,name='logvalidte')
+    path('logvalidte/',views.logvalidte,name='logvalidte'),
+    path('save/',views.save,name='save')
 ]
