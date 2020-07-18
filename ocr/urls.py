@@ -35,5 +35,9 @@ urlpatterns = [
     path('savestu/',views.savestu,name='savestu'),
     path('stulogin',views.stulogin,name='stulogin'),
     path('logvalidte/',views.logvalidte,name='logvalidte'),
-    path('save/',views.save,name='save')
+    path('save/',views.save,name='save'),
+    path('allcours/',views.allcours,name='allcours'),
+
+
+
 ]

@@ -115,14 +115,70 @@ def logvalidte(request):
     except StudentMOdel.DoesNotExist:
 
         return render(request, "stulogin.html", {"msg": "login faill"})
+#
+# def stulogin(request):
+#     return render(request,'loginstu.html')
 
 
 def save(request):
-    c=request.POST.get('t1')
+    c=request.GET.get('cid')
     i=request.GET.get('sid')
-    print(c,i)
-    e=EnrokedCourseModel(sid_id=i)
-    e.save()
-    e.cn.set(c)
-    #return render(request,'loginstu.html',{'msg':'added successful'})
-    return redirect('/')
+#     #n=request.GET.get('sname')
+#     print(i)
+#     e=EnrokedCourseModel(sid=i,)
+#     e.save()
+#     NesclassModel()
+# #    e.cn.set(c)
+#     #e.save()
+#     #n.cid.add(c)
+#     print('cccc'+c)
+#     print('iii'+i)
+#     #return render(request,'loginstu.html',{'msg':'added successful'})
+#     print('ok')
+#     messages.success(request,'enrolled success')
+#     return render(request,'loginstu.html')
+    print(i,c)
+    EnrokedCourseModel(cn=c,sid=i).save()
+    #messages.success(request, 'enrolled success')
+    #return render(request, 'loginstu.html')
+    print('data save')
+    return render(request,'loginstu.html')
+
+
+def allcours(request):
+    print('all coures')
+    si=request.GET.get('sid')
+    #print(si)
+    l = []
+    res1=EnrokedCourseModel.objects.filter(sid=si).all().values()
+    for x in res1:
+        #print(x['cn'])
+        data=x['cn']
+
+        l.append(data)
+    #print(l)
+    da=list(dict.fromkeys(l))
+    print('da')
+    print(da)
+    l1=[]
+    for h in da:
+        print(h)
+        v=NesclassModel.objects.get(id=h)
+        l1.append(v)
+        print(l1)
+    return render(request, 'viewallcours.html', {'data': l1})
+    #     v=NesclassModel.objects.get(id=da[h])
+    #     print('v')
+    #     print(v)
+    #     l1.append(v)
+    #     print('l1')
+    #     print(l1)
+    # for i in da:
+    #     #print(i)
+    #     ans=len(da)
+    #     for j in range(ans):
+    #
+    #         res=NesclassModel.objects.get(id=i)
+    #
+    #     return render(request, 'viewallcours.html', {'data': l1})
+    return None

@@ -1,0 +1,20 @@
+
+
+
+
+{% extends 'common.html'%}
+{% block common %}
+
+{% include 'stulogmenu.html' %}
+
+
+
+    <table align="center" border="2">
+    <tr><th>course</th></tr>
+    {% for x in data %}
+        <tr><th>{{ x.name }}</th></tr>
+    {% endfor %}
+    </table>
+
+
+{% endblock %}
